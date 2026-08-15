@@ -1,53 +1,942 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowKBeauty - K-Beauty Skincare & Medicube Reviews</title>
+    <title>GlowKBeauty — Korean Skincare Reviews & Routines</title>
+    <meta name="description" content="Honest Korean skincare reviews, routines, ingredient guides, and product recommendations for healthier, glowing skin.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; color: #222; background: #fafafa; }
-        .disclosure { background: #fff3f5; padding: 12px 20px; font-size: 13px; color: #b83253; text-align: center; border-bottom: 1px solid #f8d7da; font-weight: 500; }
-        header { background: #ffffff; border-bottom: 1px solid #eaeaea; padding: 25px 20px; text-align: center; }
-        header h1 { margin: 0; color: #d15878; font-size: 30px; letter-spacing: -0.5px; }
-        header p { color: #666; font-size: 15px; margin-top: 6px; }
-        .container { max-width: 750px; margin: 30px auto; padding: 0 20px; }
-        .hero { text-align: center; padding: 35px 20px; background: #ffffff; border: 1px solid #eee; border-radius: 12px; margin-bottom: 30px; }
-        .hero h2 { font-size: 24px; color: #111; margin-top: 0; }
-        .hero p { color: #555; line-height: 1.6; font-size: 15px; }
-        .card { background: #ffffff; border: 1px solid #eee; border-radius: 12px; padding: 25px; margin-bottom: 20px; }
-        .card h3 { margin-top: 0; color: #111; font-size: 20px; }
-        .card p { color: #555; line-height: 1.6; font-size: 15px; }
-        .btn { display: inline-block; background: #d15878; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; margin-top: 10px; }
-        footer { text-align: center; padding: 30px 20px; font-size: 13px; color: #888; margin-top: 40px; }
+        :root {
+            --primary: #C94A72;
+            --primary-dark: #B33D61;
+            --soft-pink: #FCEEF3;
+            --very-light-pink: #FFF8FA;
+            --text-main: #171717;
+            --text-muted: #666666;
+            --border-color: #F0E2E7;
+            --bg-white: #FFFFFF;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-main); background-color: var(--bg-white); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* TOP DISCLOSURE BAR */
+        .top-bar {
+            background-color: var(--soft-pink);
+            text-align: center;
+            padding: 9px 16px;
+            font-size: 13px;
+            color: var(--primary-dark);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .top-bar span { color: var(--primary); margin-right: 4px; }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            color: var(--primary);
+        }
+        .logo-text-group { display: flex; flex-direction: column; }
+        .logo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+            letter-spacing: -0.3px;
+        }
+        .logo-subtitle {
+            font-size: 9px;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            margin-top: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .nav-links a {
+            color: #4A4A4A;
+            transition: color 0.2s;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #4A4A4A;
+            display: flex;
+            align-items: center;
+            padding: 4px;
+        }
+        .search-btn:hover { color: var(--primary); }
+        .globe-icon {
+            font-size: 16px;
+            color: #4A4A4A;
+            cursor: pointer;
+        }
+        .btn-subscribe {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+        .btn-subscribe:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(135deg, var(--very-light-pink) 0%, var(--soft-pink) 100%);
+            padding: 60px 20px;
+        }
+        .hero-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-label {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-label::after {
+            content: '';
+            display: inline-block;
+            width: 36px;
+            height: 1.5px;
+            background: var(--primary);
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            line-height: 1.12;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+        .hero-title span {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 400;
+        }
+        .hero-description {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 45px;
+            align-items: center;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.85);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .btn-secondary:hover {
+            background-color: #FFFFFF;
+            border-color: var(--primary);
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 24px;
+            border-top: 1px solid rgba(201, 74, 114, 0.15);
+            padding-top: 25px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .feature-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            border: 1px solid var(--border-color);
+            font-size: 16px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .feature-text h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+        .feature-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 500px;
+            box-shadow: 0 12px 30px rgba(201, 74, 114, 0.08);
+        }
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* GENERAL SECTION CONTAINER */
+        .section-container {
+            max-width: 1240px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .section-title span {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 2px;
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-top: 8px;
+        }
+
+        /* CATEGORIES GRID */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+        .category-card {
+            background: var(--very-light-pink);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding-bottom: 18px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(201, 74, 114, 0.08);
+        }
+        .category-img {
+            height: 145px;
+            width: 100%;
+            position: relative;
+        }
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .category-badge {
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+            color: var(--primary);
+            font-size: 13px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+        }
+        .category-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 24px;
+            color: var(--text-main);
+        }
+        .category-card p {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin: 4px 0 10px;
+            padding: 0 8px;
+        }
+        .category-card .arrow {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* FEATURED REVIEW BANNER */
+        .featured-banner {
+            background: linear-gradient(105deg, var(--soft-pink) 0%, #F8DDE5 100%);
+            border-radius: 20px;
+            padding: 45px 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+        .badge-featured {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #FFFFFF;
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .featured-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            line-height: 1.2;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 14px;
+        }
+        .featured-content p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            max-width: 440px;
+        }
+        .featured-img-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .featured-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        /* LATEST REVIEWS & GUIDES */
+        .latest-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+        .btn-view-all {
+            border: 1px solid var(--border-color);
+            background: #FFFFFF;
+            padding: 9px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .btn-view-all:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .article-card {
+            background: #FFFFFF;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .article-img {
+            height: 160px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .article-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .article-card:hover .article-img img {
+            transform: scale(1.05);
+        }
+        .article-body {
+            padding: 18px;
+        }
+        .article-tag {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+            display: block;
+            text-transform: uppercase;
+        }
+        .article-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.4;
+            margin-bottom: 14px;
+            height: 42px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .article-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: #999999;
+            align-items: center;
+        }
+
+        /* NEWSLETTER COMMUNITY */
+        .newsletter-box {
+            background: var(--soft-pink);
+            border-radius: 20px;
+            padding: 40px 45px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            border: 1px solid var(--border-color);
+        }
+        .newsletter-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .gift-icon-box {
+            width: 52px;
+            height: 52px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+            font-size: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .newsletter-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .newsletter-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            width: 440px;
+        }
+        .newsletter-input {
+            flex: 1;
+            padding: 13px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            font-size: 13px;
+            outline: none;
+            background: #FFFFFF;
+            color: var(--text-main);
+            font-family: inherit;
+        }
+        .newsletter-input::placeholder { color: #AAAAAA; }
+        .newsletter-btn {
+            background: var(--primary);
+            color: #FFFFFF;
+            border: none;
+            padding: 13px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .newsletter-btn:hover { background: var(--primary-dark); }
+
+        /* FOOTER */
+        footer {
+            background: var(--very-light-pink);
+            border-top: 1px solid var(--border-color);
+            padding: 50px 20px 30px;
+        }
+        .footer-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .footer-brand {
+            margin-bottom: 20px;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+        .footer-tagline {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 25px 0 35px;
+            font-size: 14px;
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-disclosure {
+            font-size: 12px;
+            color: #888888;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+        .footer-copyright {
+            font-size: 12px;
+            color: #AAAAAA;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .hero-container, .featured-banner {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .hero-image-wrapper { height: 380px; }
+            .category-grid { grid-template-columns: repeat(3, 1fr); }
+            .articles-grid { grid-template-columns: repeat(2, 1fr); }
+            .newsletter-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            .newsletter-info { flex-direction: column; }
+            .newsletter-form { width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-title { font-size: 40px; }
+            .hero-features { flex-direction: column; gap: 16px; }
+            .featured-banner { padding: 30px 25px; }
+            .featured-content h2 { font-size: 28px; }
+        }
+
+        @media (max-width: 640px) {
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+            .articles-grid { grid-template-columns: 1fr; }
+            .newsletter-form { flex-direction: column; }
+            .newsletter-btn { justify-content: center; width: 100%; }
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .btn-primary, .btn-secondary { justify-content: center; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="disclosure">
-        <strong>FTC Disclosure:</strong> As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.
+    <!-- TOP DISCLOSURE BAR -->
+    <div class="top-bar">
+        <span>♡</span> Honest reviews. Science-backed skincare. No paid bias — just real results.
     </div>
 
+    <!-- HEADER -->
     <header>
-        <h1>GlowKBeauty</h1>
-        <p>Honest K-Beauty Reviews & Targeted Skincare Guides</p>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <div class="logo-text-group">
+                    <span class="logo-title">GlowKBeauty</span>
+                    <span class="logo-subtitle">YOUR GLOW, OUR PASSION</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="#">Reviews</a>
+                <a href="#">Routines</a>
+                <a href="#">Ingredients</a>
+                <a href="#">Skin Concerns</a>
+                <a href="#">Guides</a>
+                <a href="#">Deals</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                </button>
+                <span class="globe-icon" title="Global">🌐</span>
+                <a href="#" class="btn-subscribe">♡ Subscribe</a>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="hero">
-            <h2>Your Guide to Glass Skin Care</h2>
-            <p>Real results, science-backed ingredients, and curated routines tested for US, UK, and CA skincare routines.</p>
-        </div>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div>
+                    <div class="hero-label">UNLOCK YOUR NATURAL GLOW</div>
+                    <h1 class="hero-title">Healthier Skin,<br><span>Happier You ♡</span></h1>
+                    <p class="hero-description">Discover the best Korean skincare products, routines and tips for radiant, glass-like skin — every day.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn-primary">Find Your Routine →</a>
+                        <a href="#" class="btn-secondary">Browse Reviews</a>
+                    </div>
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">💧</div>
+                            <div class="feature-text">
+                                <h4>Science-Backed</h4>
+                                <p>Evidence-Based Advice</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🛡️</div>
+                            <div class="feature-text">
+                                <h4>Independent</h4>
+                                <p>Honest & Unbiased</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🌿</div>
+                            <div class="feature-text">
+                                <h4>For All Skin Types</h4>
+                                <p>Your Skin, Our Priority</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1000&q=80" alt="Glass skin beauty portrait">
+                </div>
+            </div>
+        </section>
 
-        <div class="card">
-            <h3>Featured: Medicube Pore & Anti-Aging Routine</h3>
-            <p>A deep dive into Medicube's viral Zero Pore Pads and Age-R Booster devices—are they worth the TikTok hype?</p>
-            <a href="medicube.html" class="btn">Read Full Medicube Review</a>
-        </div>
-    </div>
+        <!-- TOP CATEGORIES -->
+        <section class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Explore <span>Top</span> Categories</h2>
+                <p class="section-subtitle">Everything you need for healthy, glowing skin</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Best Serums" loading="lazy">
+                        <div class="category-badge">💧</div>
+                    </div>
+                    <h3>Best Serums</h3>
+                    <p>Glow, hydrate & repair</p>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1608248597560-843376f92d41?auto=format&fit=crop&w=400&q=80" alt="Moisturizers" loading="lazy">
+                        <div class="category-badge">🧴</div>
+                    </div>
+                    <h3>Moisturizers</h3>
+                    <p>Lock in lasting hydration</p>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80" alt="Sunscreens" loading="lazy">
+                        <div class="category-badge">☀️</div>
+                    </div>
+                    <h3>Sunscreens</h3>
+                    <p>Daily protection</p>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=400&q=80" alt="K-Beauty Favorites" loading="lazy">
+                        <div class="category-badge">🌸</div>
+                    </div>
+                    <h3>K-Beauty</h3>
+                    <p>Korean skincare favorites</p>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=400&q=80" alt="Anti-Aging" loading="lazy">
+                        <div class="category-badge">⏳</div>
+                    </div>
+                    <h3>Anti-Aging</h3>
+                    <p>Younger, firmer skin</p>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1512290900673-0402e3f01900?auto=format&fit=crop&w=400&q=80" alt="Acne Care" loading="lazy">
+                        <div class="category-badge">🌿</div>
+                    </div>
+                    <h3>Acne Care</h3>
+                    <p>Clear & healthy skin</p>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+        </section>
 
+        <!-- FEATURED REVIEW -->
+        <section class="section-container">
+            <div class="featured-banner">
+                <div class="featured-content">
+                    <div class="badge-featured">🔥 FEATURED REVIEW</div>
+                    <h2>Medicube Zero Pore Pads & Age-R Booster</h2>
+                    <p>We tested the viral Medicube routine. Here's what works, what doesn't, and who it's really for.</p>
+                    <a href="medicube.html" class="btn-primary">Read Full Review →</a>
+                </div>
+                <div class="featured-img-container">
+                    <img class="featured-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Medicube Skincare Products" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- LATEST REVIEWS & GUIDES -->
+        <section class="section-container">
+            <div class="latest-header">
+                <h2 class="section-title">Latest Reviews & Guides</h2>
+                <a href="#" class="btn-view-all">View All →</a>
+            </div>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Niacinamide Benefits" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="article-tag">INGREDIENTS</span>
+                        <h3 class="article-title">Niacinamide: Benefits, Myths & How to Use It</h3>
+                        <div class="article-meta">
+                            <span>⏱️ 8 min read</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80" alt="Glass Skin Routine" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="article-tag">ROUTINES</span>
+                        <h3 class="article-title">Glass Skin Routine for Beginners (Step-by-Step)</h3>
+                        <div class="article-meta">
+                            <span>⏱️ 6 min read</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://images.unsplash.com/photo-1608248597560-843376f92d41?auto=format&fit=crop&w=400&q=80" alt="Best Korean Sunscreens" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="article-tag">REVIEWS</span>
+                        <h3 class="article-title">Best Korean Sunscreens for Glowing Skin</h3>
+                        <div class="article-meta">
+                            <span>⏱️ 10 min read</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://images.unsplash.com/photo-1512290900673-0402e3f01900?auto=format&fit=crop&w=400&q=80" alt="Korean Skincare Routine" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="article-tag">GUIDES</span>
+                        <h3 class="article-title">How to Build a Korean Skincare Routine That Sticks</h3>
+                        <div class="article-meta">
+                            <span>⏱️ 7 min read</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER COMMUNITY -->
+        <section class="section-container">
+            <div class="newsletter-box">
+                <div class="newsletter-info">
+                    <div class="gift-icon-box">🎁</div>
+                    <div>
+                        <h3>Join the GlowKBeauty Community ♡</h3>
+                        <p>Get the best Korean skincare tips, honest reviews & exclusive deals — straight to your inbox.</p>
+                    </div>
+                </div>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Email Address">
+                    <button type="submit" class="newsletter-btn">♡ Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 GlowKBeauty. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">GlowKBeauty</div>
+                <div class="footer-tagline">Korean Skincare Reviews & Routines</div>
+            </div>
+            <div class="footer-links">
+                <a href="#">Reviews</a>
+                <a href="#">Routines</a>
+                <a href="#">Ingredients</a>
+                <a href="#">Skin Concerns</a>
+                <a href="#">Guides</a>
+                <a href="#">Deals</a>
+            </div>
+            <p class="footer-disclosure">
+                FTC Disclosure: As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.
+            </p>
+            <div class="footer-copyright">
+                &copy; 2026 GlowKBeauty. All rights reserved.
+            </div>
+        </div>
     </footer>
 
 </body>
