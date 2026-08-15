@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowCare — Your Glow, Our Passion</title>
+    <title>GlowCare — Healthier Skin, Happier You</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,7 +11,8 @@
         :root {
             --primary: #C0486D;
             --primary-dark: #A5395A;
-            --soft-bg: #FAF0F3;
+            --soft-pink: #FAF0F3;
+            --banner-pink: #FDF0F4;
             --light-pink: #F8E6EC;
             --border-color: #F1E0E6;
             --text-main: #1C1C1C;
@@ -24,38 +25,25 @@
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; }
 
-        /* TOP ANNOUNCEMENT BAR */
-        .top-bar {
-            background-color: #FFF6F8;
-            text-align: center;
-            padding: 8px 16px;
-            font-size: 13px;
-            color: #555555;
-            font-weight: 500;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .top-bar span { color: var(--primary); margin-right: 4px; font-weight: 600; }
-
-        /* HEADER / NAVBAR */
         header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: var(--bg-white);
-            border-bottom: 1px solid var(--border-color);
         }
         .nav-container {
-            max-width: 1240px;
+            max-width: 1280px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 20px;
+            padding: 14px 24px;
         }
         .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         .logo-icon {
             width: 32px;
@@ -68,7 +56,7 @@
             font-size: 26px;
             font-weight: 700;
             color: var(--text-main);
-            line-height: 1;
+            line-height: 0.95;
         }
         .logo-subtitle {
             font-family: 'Playfair Display', serif;
@@ -80,7 +68,7 @@
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 26px;
             font-size: 14px;
             font-weight: 600;
         }
@@ -106,8 +94,8 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 16px;
-            font-size: 13px;
+            gap: 18px;
+            font-size: 13.5px;
             font-weight: 600;
         }
         .search-btn {
@@ -131,7 +119,7 @@
             padding: 9px 22px;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 13.5px;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -139,29 +127,48 @@
         }
         .btn-subscribe:hover { background-color: var(--primary-dark); }
 
-        /* HERO SECTION */
+        .top-bar {
+            background-color: #FFF6F8;
+            text-align: center;
+            padding: 9px 16px;
+            font-size: 13px;
+            color: #555555;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .top-bar span { color: var(--primary); }
+
         .hero-section {
-            background: linear-gradient(180deg, #FFF9FA 0%, var(--soft-bg) 100%);
-            padding: 50px 20px 60px;
+            background: linear-gradient(180deg, #FFF8FA 0%, #FAF0F3 100%);
+            padding: 50px 24px 0px;
+            position: relative;
+            overflow: hidden;
         }
         .hero-container {
-            max-width: 1240px;
+            max-width: 1280px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
-            align-items: center;
+            align-items: flex-end;
+        }
+        .hero-content {
+            padding-bottom: 60px;
         }
         .hero-label {
             color: var(--primary);
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         .hero-label::after {
             content: '';
@@ -172,11 +179,11 @@
         }
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 58px;
-            line-height: 1.1;
+            font-size: 62px;
+            line-height: 1.08;
             font-weight: 600;
             color: var(--text-main);
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
         .hero-title span {
             font-style: italic;
@@ -187,19 +194,19 @@
             color: var(--text-muted);
             font-size: 15px;
             line-height: 1.6;
-            margin-bottom: 30px;
-            max-width: 480px;
+            margin-bottom: 35px;
+            max-width: 490px;
         }
         .hero-buttons {
             display: flex;
             gap: 14px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             align-items: center;
         }
         .btn-primary {
             background-color: var(--primary);
             color: #FFFFFF;
-            padding: 12px 26px;
+            padding: 13px 28px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 14px;
@@ -212,8 +219,7 @@
         .btn-secondary {
             background-color: #F8E6EC;
             color: var(--primary);
-            border: 1px solid var(--border-color);
-            padding: 12px 26px;
+            padding: 13px 28px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 14px;
@@ -244,7 +250,6 @@
             border: 1px solid var(--border-color);
             font-size: 14px;
             flex-shrink: 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
         .feature-text h4 {
             font-size: 13px;
@@ -260,22 +265,24 @@
 
         .hero-image-wrapper {
             position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 480px;
-            box-shadow: 0 10px 25px rgba(192, 72, 109, 0.08);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
         }
         .hero-image-wrapper img {
             width: 100%;
-            height: 100%;
+            max-height: 520px;
             object-fit: cover;
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 10px 30px rgba(192, 72, 109, 0.05);
         }
 
-        /* SECTION HEADERS */
         .section-container {
-            max-width: 1240px;
+            max-width: 1280px;
             margin: 60px auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
         .section-header {
             text-align: center;
@@ -283,7 +290,7 @@
         }
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 600;
             color: var(--text-main);
         }
@@ -297,7 +304,6 @@
             margin-top: 6px;
         }
 
-        /* CATEGORIES GRID */
         .category-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -310,11 +316,11 @@
             border: 1px solid var(--border-color);
             text-align: center;
             padding-bottom: 16px;
-            transition: transform 0.25s, box-shadow 0.25s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
         }
         .category-img {
             height: 135px;
@@ -341,7 +347,7 @@
             border: 1px solid var(--border-color);
             color: var(--primary);
             font-size: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
         }
         .category-card h3 {
             font-size: 14px;
@@ -361,17 +367,15 @@
             font-weight: 700;
         }
 
-        /* FEATURED REVIEW BANNER */
         .featured-banner {
             background: linear-gradient(95deg, #FDF0F4 0%, #FCE4EC 100%);
             border-radius: 20px;
-            padding: 40px;
+            padding: 40px 50px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
             align-items: center;
             border: 1px solid var(--border-color);
-            position: relative;
         }
         .badge-featured {
             display: inline-flex;
@@ -383,24 +387,23 @@
             font-weight: 700;
             padding: 5px 12px;
             border-radius: 20px;
-            letter-spacing: 0.5px;
             margin-bottom: 16px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            letter-spacing: 0.5px;
         }
         .featured-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 34px;
-            line-height: 1.25;
+            font-size: 36px;
+            line-height: 1.2;
             font-weight: 600;
             color: var(--text-main);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
         .featured-content p {
             color: var(--text-muted);
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: 24px;
-            max-width: 420px;
+            max-width: 440px;
         }
         .featured-img-container {
             position: relative;
@@ -410,28 +413,28 @@
         }
         .featured-img {
             width: 100%;
-            max-height: 280px;
+            max-height: 290px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 16px;
         }
         .cursive-overlay {
             position: absolute;
-            right: 20px;
+            right: 25px;
             bottom: 20px;
             font-family: 'Caveat', cursive;
-            font-size: 38px;
+            font-size: 42px;
             color: var(--text-main);
-            transform: rotate(-8deg);
+            transform: rotate(-6deg);
             line-height: 1;
             text-align: center;
+            text-shadow: 0 2px 8px rgba(255,255,255,0.8);
         }
         .cursive-overlay span {
             color: var(--primary);
-            font-size: 28px;
+            font-size: 30px;
             display: block;
         }
 
-        /* LATEST REVIEWS & GUIDES */
         .latest-header {
             display: flex;
             justify-content: space-between;
@@ -441,14 +444,11 @@
         .btn-view-all {
             border: 1px solid var(--border-color);
             background: #FFFFFF;
-            padding: 8px 18px;
+            padding: 8px 20px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 600;
             color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 6px;
             transition: all 0.2s;
         }
         .btn-view-all:hover { border-color: var(--primary); color: var(--primary); }
@@ -462,11 +462,11 @@
             border-radius: 14px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            transition: transform 0.25s;
+            transition: transform 0.2s;
         }
-        .article-card:hover { transform: translateY(-4px); }
+        .article-card:hover { transform: translateY(-3px); }
         .article-img {
-            height: 155px;
+            height: 160px;
             width: 100%;
             overflow: hidden;
         }
@@ -490,7 +490,7 @@
             font-weight: 700;
             color: var(--text-main);
             line-height: 1.4;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             height: 40px;
             overflow: hidden;
             display: -webkit-box;
@@ -502,12 +502,15 @@
             gap: 12px;
             font-size: 11px;
             color: #888888;
+        }
+        .article-meta span {
+            display: flex;
             align-items: center;
+            gap: 4px;
         }
 
-        /* NEWSLETTER COMMUNITY */
         .newsletter-box {
-            background: var(--soft-bg);
+            background: var(--soft-pink);
             border-radius: 16px;
             padding: 35px 40px;
             display: flex;
@@ -530,9 +533,9 @@
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            flex-shrink: 0;
             border: 1px solid var(--border-color);
-            font-size: 18px;
+            font-size: 20px;
+            flex-shrink: 0;
         }
         .newsletter-info h3 {
             font-family: 'Playfair Display', serif;
@@ -584,7 +587,6 @@
         }
         .newsletter-btn:hover { background: var(--primary-dark); }
 
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .hero-container, .featured-banner { grid-template-columns: 1fr; }
             .category-grid { grid-template-columns: repeat(3, 1fr); }
@@ -597,17 +599,12 @@
             .category-grid { grid-template-columns: repeat(2, 1fr); }
             .articles-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+            .hero-title { font-size: 42px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="top-bar">
-        <span>♡</span> Honest reviews. Science-backed skincare. No paid bias — just real results.
-    </div>
-
-    <!-- HEADER / NAVBAR -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
@@ -640,12 +637,15 @@
         </div>
     </header>
 
+    <div class="top-bar">
+        <span>♡</span> Honest reviews. Science-backed skincare. No paid bias — just real results.
+    </div>
+
     <main>
-        <!-- HERO SECTION -->
         <section class="hero-section">
             <div class="hero-container">
-                <div>
-                    <div class="hero-label">UNLOCK YOUR NATURAL GLOW</div>
+                <div class="hero-content">
+                    <div class="hero-label">Unlock Your Natural Glow</div>
                     <h1 class="hero-title">Healthier Skin,<br><span>Happier You ♡</span></h1>
                     <p class="hero-description">Discover the best skincare products, routines and tips for radiant, glass-like skin — every day.</p>
                     <div class="hero-buttons">
@@ -664,11 +664,11 @@
                             <div class="feature-icon">🛡️</div>
                             <div class="feature-text">
                                 <h4>Independent</h4>
-                                <p>Honest & Unbiased</p>
+                                <p>Honest &amp; Unbiased</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">🌿</div>
+                            <div class="feature-icon">🍃</div>
                             <div class="feature-text">
                                 <h4>For All Skin Types</h4>
                                 <p>Your Skin, Our Priority</p>
@@ -677,170 +677,166 @@
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1000&q=80" alt="Glowing skin portrait">
+                    <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=900&q=80&auto=format&fit=crop" alt="Woman applying skincare cream to her face">
                 </div>
             </div>
         </section>
 
-        <!-- EXPLORE TOP CATEGORIES -->
         <section class="section-container">
             <div class="section-header">
-                <h2 class="section-title">Explore <span>Top</span> Categories</h2>
+                <h2 class="section-title">Explore Top Categories</h2>
                 <p class="section-subtitle">Everything you need for healthy, glowing skin</p>
             </div>
             <div class="category-grid">
-                <div class="category-card">
+                <a href="#" class="category-card">
                     <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Best Serums">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80&auto=format&fit=crop" alt="Serum bottle">
                         <div class="category-badge">💧</div>
                     </div>
                     <h3>Best Serums</h3>
-                    <p>Glow, hydrate & repair</p>
+                    <p>Glow, hydrate &amp; repair</p>
                     <span class="arrow">→</span>
-                </div>
-                <div class="category-card">
+                </a>
+                <a href="#" class="category-card">
                     <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1608248597261-831e544a0342?auto=format&fit=crop&w=400&q=80" alt="Moisturizers">
-                        <div class="category-badge">🧴</div>
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80&auto=format&fit=crop" alt="Moisturizer jar">
+                        <div class="category-badge">◎</div>
                     </div>
                     <h3>Moisturizers</h3>
                     <p>Lock in lasting hydration</p>
                     <span class="arrow">→</span>
-                </div>
-                <div class="category-card">
+                </a>
+                <a href="#" class="category-card">
                     <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80" alt="Sunscreens">
-                        <div class="category-badge">☀️</div>
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&q=80&auto=format&fit=crop" alt="Sunscreen tube">
+                        <div class="category-badge">☀</div>
                     </div>
                     <h3>Sunscreens</h3>
                     <p>Daily protection</p>
                     <span class="arrow">→</span>
-                </div>
-                <div class="category-card">
+                </a>
+                <a href="#" class="category-card">
                     <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=400&q=80" alt="K-Beauty">
-                        <div class="category-badge">🌸</div>
+                        <img src="https://images.unsplash.com/photo-1573461160327-b450ce3d8e7f?w=400&q=80&auto=format&fit=crop" alt="K-Beauty pink jar with cherry blossoms">
+                        <div class="category-badge">✿</div>
                     </div>
                     <h3>K-Beauty</h3>
                     <p>The secret of glass skin</p>
                     <span class="arrow">→</span>
-                </div>
-                <div class="category-card">
+                </a>
+                <a href="#" class="category-card">
                     <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=400&q=80" alt="Anti-Aging">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&q=80&auto=format&fit=crop" alt="Anti-aging purple serum bottle">
                         <div class="category-badge">⏳</div>
                     </div>
                     <h3>Anti-Aging</h3>
                     <p>Younger, firmer skin</p>
                     <span class="arrow">→</span>
-                </div>
-                <div class="category-card">
+                </a>
+                <a href="#" class="category-card">
                     <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80" alt="Acne Care">
+                        <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=400&q=80&auto=format&fit=crop" alt="Green leaf with water droplets">
                         <div class="category-badge">🌿</div>
                     </div>
                     <h3>Acne Care</h3>
-                    <p>Clear & healthy skin</p>
+                    <p>Clear &amp; healthy skin</p>
                     <span class="arrow">→</span>
-                </div>
+                </a>
             </div>
         </section>
 
-        <!-- FEATURED REVIEW BANNER -->
-        <section class="section-container">
+        <section class="section-container" style="margin-top:0;">
             <div class="featured-banner">
                 <div class="featured-content">
                     <div class="badge-featured">🔥 FEATURED REVIEW</div>
-                    <h2>Medicube Zero Pore Pads & Age-R Booster</h2>
+                    <h2>Medicube Zero Pore Pads &amp; Age-R Booster</h2>
                     <p>We tested the viral Medicube routine. Here's what works, what doesn't, and who it's really for.</p>
                     <a href="#" class="btn-primary">Read Full Review →</a>
                 </div>
                 <div class="featured-img-container">
-                    <img class="featured-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Medicube Skincare">
-                    <div class="cursive-overlay">Real Results <span>♡</span></div>
+                    <img class="featured-img" src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=700&q=80&auto=format&fit=crop" alt="Medicube Zero Pore Pads and Age-R Booster products">
+                    <div class="cursive-overlay">Real Results<span>♡</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- LATEST REVIEWS & GUIDES -->
         <section class="section-container">
             <div class="latest-header">
-                <h2 class="section-title">Latest Reviews & Guides</h2>
+                <h2 class="section-title" style="text-align:left;">Latest Reviews &amp; Guides</h2>
                 <a href="#" class="btn-view-all">View All →</a>
             </div>
             <div class="articles-grid">
-                <article class="article-card">
+                <a href="#" class="article-card">
                     <div class="article-img">
-                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Niacinamide">
+                        <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&q=80&auto=format&fit=crop" alt="Niacinamide serum dropper">
                     </div>
                     <div class="article-body">
-                        <span class="article-tag">INGREDIENTS</span>
-                        <h3 class="article-title">Niacinamide: Benefits, Myths & How to Use It</h3>
+                        <span class="article-tag">Ingredients</span>
+                        <h3 class="article-title">Niacinamide: Benefits, Myths &amp; How to Use It</h3>
                         <div class="article-meta">
                             <span>📅 May 12, 2024</span>
-                            <span>⏱️ 8 min read</span>
+                            <span>🕐 8 min read</span>
                         </div>
                     </div>
-                </article>
-                <article class="article-card">
+                </a>
+                <a href="#" class="article-card">
                     <div class="article-img">
-                        <img src="https://images.unsplash.com/photo-1556228722-d1193828e40b?auto=format&fit=crop&w=400&q=80" alt="Glass Skin Routine">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&q=80&auto=format&fit=crop" alt="Glass skin cream texture swatch">
                     </div>
                     <div class="article-body">
-                        <span class="article-tag">ROUTINES</span>
+                        <span class="article-tag">Routines</span>
                         <h3 class="article-title">Glass Skin Routine for Beginners (Step-by-Step)</h3>
                         <div class="article-meta">
                             <span>📅 May 10, 2024</span>
-                            <span>⏱️ 6 min read</span>
+                            <span>🕐 6 min read</span>
                         </div>
                     </div>
-                </article>
-                <article class="article-card">
+                </a>
+                <a href="#" class="article-card">
                     <div class="article-img">
-                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80" alt="Best Sunscreens">
+                        <img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=400&q=80&auto=format&fit=crop" alt="Sunscreen cream texture with dropper">
                     </div>
                     <div class="article-body">
-                        <span class="article-tag">REVIEWS</span>
+                        <span class="article-tag">Reviews</span>
                         <h3 class="article-title">Best Sunscreens 2024 (For All Skin Types)</h3>
                         <div class="article-meta">
                             <span>📅 May 8, 2024</span>
-                            <span>⏱️ 10 min read</span>
+                            <span>🕐 10 min read</span>
                         </div>
                     </div>
-                </article>
-                <article class="article-card">
+                </a>
+                <a href="#" class="article-card">
                     <div class="article-img">
-                        <img src="https://images.unsplash.com/photo-1512290900673-0402e3f01900?auto=format&fit=crop&w=400&q=80" alt="Skincare Routine">
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=400&q=80&auto=format&fit=crop" alt="Green leaves with water droplets">
                     </div>
                     <div class="article-body">
-                        <span class="article-tag">GUIDES</span>
+                        <span class="article-tag">Guides</span>
                         <h3 class="article-title">How to Build a Skincare Routine That Sticks</h3>
                         <div class="article-meta">
                             <span>📅 May 5, 2024</span>
-                            <span>⏱️ 7 min read</span>
+                            <span>🕐 7 min read</span>
                         </div>
                     </div>
-                </article>
+                </a>
             </div>
         </section>
 
-        <!-- NEWSLETTER COMMUNITY -->
         <section class="section-container">
             <div class="newsletter-box">
                 <div class="newsletter-info">
                     <div class="gift-icon-box">🎁</div>
                     <div>
                         <h3>Join the GlowCare Community ♡</h3>
-                        <p>Get the best skincare tips, honest reviews & exclusive deals — straight to your inbox.</p>
+                        <p>Get the best skincare tips, honest reviews &amp; exclusive deals — straight to your inbox.</p>
                     </div>
                 </div>
-                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                <div class="newsletter-form">
                     <div class="input-wrapper">
-                        <svg class="input-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
-                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                        <span class="input-icon">✉</span>
+                        <input type="email" class="newsletter-input" placeholder="Enter your email">
                     </div>
-                    <button type="submit" class="newsletter-btn">♡ Subscribe</button>
-                </form>
+                    <button class="newsletter-btn">♡ Subscribe</button>
+                </div>
             </div>
         </section>
     </main>
